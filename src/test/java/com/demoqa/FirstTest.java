@@ -42,34 +42,23 @@ public class FirstTest {
 
         $("#firstName").setValue(name);
         $("#lastName").setValue(surname);
-
         $("#userEmail").setValue(email);
-
         $("#genterWrapper").$(byText(sex)).click();
-
         $("#userNumber").setValue(phoneNumber);
-
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("September");
         $(".react-datepicker__year-select").selectOption("1987");
         $$(".react-datepicker__day").findBy(text("16")).click();
-
         $("#subjectsInput").setValue("Co");
         $$("[id^='react-select-2-option']").findBy(text("Computer Science")).click();
-
         $$("#hobbiesWrapper").findBy(text("Reading")).click();
-
         $("#uploadPicture").uploadFromClasspath("image.jpg");
-
         $("#currentAddress").setValue(address);
-
         zoom(0.75); // иначе не дает кликнуть по штату и городу
         $("#state").click();
         $$("[id^='react-select-3-option']").findBy(text("Rajasthan")).click();
-
         $("#city").click();
         $$("[id^='react-select-4-option']").findBy(text("Jaipur")).click();
-
         $("#submit").click();
 
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
