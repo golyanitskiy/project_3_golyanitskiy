@@ -17,6 +17,7 @@ public class FirstTest {
     @BeforeAll
     static void setUp() {
         Configuration.baseUrl = "https://demoqa.com";
+        Configuration.browserSize = "1920x1080";
     }
 
     @BeforeEach
@@ -43,15 +44,18 @@ public class FirstTest {
         $("#firstName").setValue(name);
         $("#lastName").setValue(surname);
         $("#userEmail").setValue(email);
+
         $("#genterWrapper").$(byText(sex)).click();
         $("#userNumber").setValue(phoneNumber);
+
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("September");
         $(".react-datepicker__year-select").selectOption("1987");
-        $$(".react-datepicker__day").findBy(text("16")).click();
+        $$(".react-datepicker__day:not(.react-datepicker__day--outside_month)").findBy(text("16")).click();
+
         $("#subjectsInput").setValue("Co");
         $$("[id^='react-select-2-option']").findBy(text("Computer Science")).click();
-        $$("#hobbiesWrapper").findBy(text("Reading")).click();
+        $("#hobbiesWrapper").$(byText("Reading")).click();
         $("#uploadPicture").uploadFromClasspath("image.jpg");
         $("#currentAddress").setValue(address);
         zoom(0.75); // иначе не дает кликнуть по штату и городу
